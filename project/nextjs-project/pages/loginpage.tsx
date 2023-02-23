@@ -27,7 +27,7 @@ export default function LoginPage() {
     }
 
     function Login(accessToken: string) {
-      router.push(`allListings/${accessToken}`)
+      router.push(`http://localhost:3000/_app?accessToken=${accessToken}&loggedIn=${true}`)
     }
 
     function onInputChange(e: ChangeEvent<HTMLInputElement>, setVar: Dispatch<SetStateAction<string>>) {

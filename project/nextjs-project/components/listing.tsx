@@ -5,7 +5,7 @@ export default function Listing(props: { el: ListingObject }) {
     const listEl = props.el;
 
     return(
-        <div key={listEl.id}>
+        <div key={listEl.id} className="bg-slate-400">
             <h1>{listEl.title}</h1>
             <div>
                 <p>
