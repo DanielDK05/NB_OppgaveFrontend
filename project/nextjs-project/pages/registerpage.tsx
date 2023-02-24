@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ChangeEvent, useState } from "react";
 
 export default function LoginPage() {
@@ -77,38 +78,44 @@ export default function LoginPage() {
 
         return true
     }
-
     return (
         <>
-        <h2>Please log in:</h2>
+        <div className="w-screen h-screen flex flex-col justify-center items-center">
+            <div className="text-center p-10 w-1/3 bg-slate-400 shadow-inner shadow-slate-100 rounded-2xl flex flex-col justify-evenly items-center">
+                <h1 className="text-2xl p-5">Please enter information to register:</h1>
 
-        <p>Username:</p>
-        <input 
-            type="text" 
-            value={username} 
-            onChange = { onUsernameChange }
-        />
+                <p className="text-lg p-3">Username:</p>
+                <input 
+                    className="p-2 m-4 w-3/4 bg-slate-100 rounded-md shadow-inner shadow-neutral-400 focus:outline-none focus:bg-slate-200 focus:shadow-neutral-500"  
+                    type="text" 
+                    value={username} 
+                    onChange = { onUsernameChange }
+                />
 
-        <p>Email:</p>
-        <input 
-            type="text" 
-            value={email}
-            onChange = { onEmailChange }
-        />
+                <p className="text-lg p-3">Email:</p>
+                <input 
+                    className="p-2 m-4 w-3/4 bg-slate-100 rounded-md shadow-inner shadow-neutral-400 focus:outline-none focus:bg-slate-200 focus:shadow-neutral-500"  
+                    type="text" 
+                    value={email}
+                    onChange = { onEmailChange }
+                />
 
-        <p>Password:</p>
-        <input 
-            type="password" 
-            value={password}
-            onChange = { onPasswordChange }
-        />
+                <p className="text-lg p-3">Password:</p>
+                <input 
+                    className="p-2 m-4 w-3/4 bg-slate-100 rounded-md shadow-inner shadow-neutral-400 focus:outline-none focus:bg-slate-200 focus:shadow-neutral-500"  
+                    type="password" 
+                    value={password}
+                    onChange = { onPasswordChange }
+                />
 
-        <div className="buttons">
-            <button onClick={registerClick}>Register:</button>
-            <a href="/loginpage">Already have an account?</a>
+                <div className="flex flex-row justify-evenly w-2/3">
+                    <button onClick={registerClick} className="bg-slate-100 w-36 h-10 rounded-md hover:bg-slate-200">Register:</button>
+                    <span className="table bg-slate-100 w-36 h-10 rounded-md hover:bg-slate-200"><Link href="/loginpage" className="table-cell align-middle">Log in instead:</Link></span>
+                </div>
+
+                <p>{statusMessage}</p>
+            </div>
         </div>
-
-        <p>{statusMessage}</p>
         </>
     )
 }

@@ -1,13 +1,16 @@
-import { useState } from "react";
 import MainPage from "./";
 import Layout from "./_layout";
+import '../styles/globals.css'
+import { AppProps } from "next/app";
 
-export default function App() {
-  const [accessToken, setAccessToken] = useState("");
+interface CustomPageProps {
 
+};
+
+export default function App({ Component, pageProps }: AppProps<CustomPageProps>) {
   return (
     <Layout>
-      <MainPage />
+      <Component {...pageProps} />
     </Layout>
   );
 }

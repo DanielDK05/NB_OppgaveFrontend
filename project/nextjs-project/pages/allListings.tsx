@@ -2,7 +2,7 @@ import { ListingObject } from "@/apiObjects";
 import { useEffect, useState } from "react";
 import Listing from "../components/listing";
 
-export default function AllListings(props: {accessToken: string}) {
+export default function AllListings(props: {accessToken: string|undefined|null}) {
     const [listings, setListings] = useState<Object[]>([]);
 
     // Get listings when component first loads
@@ -36,14 +36,16 @@ export default function AllListings(props: {accessToken: string}) {
 
     return (
         <>
-            <h1>Hello World!!</h1>
-            {  
-                listings.map(element => {
-                    const el = element as ListingObject;
-                    console.log(element);
-                    return <Listing key={el.id} el={el} />
-                })
-            }
+            <h1 className="text-5xl text-center pt-10">Bid on these listings:</h1>
+            <div className="grid grid-cols-3 w-screen h-auto gap-10 p-20">
+                {  
+                    listings.map(element => {
+                        const el = element as ListingObject;
+                        console.log(element);
+                        return <Listing key={el.id} el={el} />
+                    })
+                }
+            </div>
         </>
     )
 }
